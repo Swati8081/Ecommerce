@@ -9,9 +9,9 @@
             <x-admin.form.form1 :action="route('admin.product.store')">
                 <x-admin.form.input1 name="name" label="Title" />
                 <x-admin.form.input1 name="sku" label="SKU" />
-                <x-admin.form.input1 name="category_id" label="Category" type="select" :value="$categories"/>
-                <x-admin.form.input1 name="mrp" label="Mrp" />
-                <x-admin.form.input1 name="sale_price" label="Sale Price" />
+                <x-admin.form.input1 name="category_id" label="Category" type="select" :options="$categories"/>
+                <x-admin.form.input1 name="mrp" type="number" label="Mrp" />
+                <x-admin.form.input1 name="sale_price" type="number" label="Sale Price" />
                 <x-admin.form.input1 name="specification" label="Spectification" />
                 <x-admin.form.input1 name="description" label="Description" type="editor"/>
                 <x-admin.form.input1 name="short_description" label="Short Description" type="editor" />

@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('brand');
             $table->string('high_lights');
             $table->boolean('stock')->default(1);
+            $table->softDeletes();
             
         });
     }

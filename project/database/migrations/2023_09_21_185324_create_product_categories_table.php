@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('slug');
             $table->string('image')->default('dummy.png');
             $table->timestamps();
+            $table->softDeletes();
+
         });
     }
 

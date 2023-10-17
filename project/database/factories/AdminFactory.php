@@ -22,7 +22,7 @@ class AdminFactory extends Factory
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
-            'password' => '$1$xVXkQ6xb$uobW4AcDBIZtmCGzVomxO0', // 12345678
+            'password' => '$2a$12$YNmTMK01CRK3jU8BL67wk.j.SwUcJNxw44lcOhvknB8WdE8HlQPsa', // password
             'remember_token' => Str::random(10),
         ];
     }

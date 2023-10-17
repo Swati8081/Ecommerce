@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\ProductCategory;
+use DB;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -13,7 +14,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $data=ProductCategory::where('id','>',1)->get();
+        // return $data=DB::table('product_categories')->where('deleted_at','!=',null)->get();
+    
+        $data=ProductCategory::where('id','>',1)->with('parent')->get();
 
         return view('admin.category.index',compact('data'));
     }
@@ -46,8 +49,8 @@ class CategoryController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move('storage/themes/admin/category_img/', $imageName);
-            $data->image = asset('themes/admin/category_img/' . $imageName);
+            $image->move('storage/images/category/', $imageName);
+            $data->image = asset('images/category/' . $imageName);
         }
 
         $data->name = $request->input('name');
@@ -79,6 +82,9 @@ class CategoryController extends Controller
         return view('admin.category.edit',compact('category','data'));
     }
 
+
+
+
     /**
      * Update the specified resource in storage.
      */
@@ -92,8 +98,8 @@ class CategoryController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move('storage/images/category_img/', $imageName);
-            $category->image = asset('images/category_img/' . $imageName);
+            $image->move('storage/images/category/', $imageName);
+            $category->image = asset('images/category/' . $imageName);
         }
 
         $category->update();
@@ -105,6 +111,13 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $data=ProductCategory::find($id);
+
+        $data->delete();
+     
+        return back()->with('sucess','Category deleted successfully');
+
+        
+    
     }
 }

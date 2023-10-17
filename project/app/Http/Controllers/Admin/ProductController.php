@@ -1,10 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Product;
-use App\Models\ProductCategory;
+use Laravel\Prompts\Prompt;
+use App\Models\ProductImage;
 use Illuminate\Http\Request;
+use App\Models\ProductCategory;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Intervention\Image\Facades\Image;
 
 class ProductController extends Controller
 {
@@ -13,7 +18,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('admin.product.index');
+         $data = Product::with('images', 'category')->get();
+        return view('admin.product.index', compact('data'));
     }
 
     /**
@@ -30,6 +36,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        // return $request;
         $input = $request->input();
 
         $product = new Product();
@@ -49,7 +56,24 @@ class ProductController extends Controller
 
         $product_id = $product->id;
 
-        //    return $request->image;
+        foreach ($request->image as $key => $value) {
+            // return $value;
+            $small_img = 'images/products/small_img/'. uniqid().'.'.$value->getClientOriginalExtension();
+            $medium_img = 'images/products/medium_img/'. uniqid().'.'.$value->getClientOriginalExtension();
+            $large_img = 'images/products/large_img/'. uniqid().'.'.$value->getClientOriginalExtension();
+            
+            Image::make($value)->resize(60,60)->save('storage/'.$small_img);
+            Image::make($value)->resize(240,240)->save('storage/'.$medium_img);
+            Image::make($value)->resize(600,600)->save('storage/'.$large_img);
+            ProductImage::create([
+                'product_id'=> $product_id,
+                'small_img'=> $small_img,
+                'medium_img'=> $medium_img,
+                'large_img'=> $large_img,
+            ]);
+        }
+
+        return redirect()->route('admin.product.index')->with('success', 'product added successfully');
     }
 
     /**
@@ -57,7 +81,8 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $data = Product::whereId($id)->first();
+        return view('admin.product.show', compact('data'));
     }
 
     /**
@@ -65,7 +90,9 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data = Product::whereId($id)->first();
+        $categories = ProductCategory::select('id as value', 'name')->get();
+        return view('admin.product.edit', compact('data', 'categories'));
     }
 
     /**

@@ -10,46 +10,54 @@
             <div class="card">
                 <div class="card-body p-0">
                     <div class="table-responsive active-projects style-1">
-                    <div class="tbl-caption">
-                        <h4 class="heading mb-0">Products</h4>
-                        <div>
-                            <a class="btn btn-primary btn-sm"  href="{{route('admin.product.create')}}">+ Add Product</a>
-                           
+                        <div class="tbl-caption">
+                            <h4 class="heading mb-0">Products</h4>
+                            <div>
+                                <a class="btn btn-primary btn-sm" href="{{ route('admin.product.create') }}">+ Add
+                                    Product</a>
+
+                            </div>
                         </div>
-                    </div>
                         <table id="empoloyees-tblwrapper" class="table">
                             <thead>
                                 <tr>
                                     <th>Product ID</th>
+                                    <th>Product Image</th>
                                     <th>Product Name</th>
-                                    <th>Department</th>
-                                    <th>Email Address</th>
-                                    <th>Contact Number</th>
-                                    <th>Gender</th>
-                                    <th>Location</th>
+                                    <th>Category</th>
+                                    <th>Price</th>
                                     <th>Status</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
-                           <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                            
-                            </tr>
-                           
+                            <tbody>
+                                @forelse ($data as $i)
+                                    <tr>
+                                        <td>{{ $i->id }}</td>
+                                        <td> <img src="{{ asset($i['images'][0]->small_img ?? 'images/products/small_img/dummy.jpg') }}" width="50" alt=""> </td>
+                                        <td>{{ $i->title }}</td>
+                                        <td>{{ $i['category']->name }}</td>
+                                        <td>{{ $i->sale_price }}</td>
+                                        <td>{{ $i->sale_price }}</td>
+                                        <td>
+                                            <a href="{{ route('admin.product.edit', $i->id) }}" class="btn btn-info">
+                                                Edit</a>
+                                            <a href="{{ route('admin.product.show', $i->id) }}" class="btn btn-info">
+                                                view</a>
+                                        </td>
 
-                           </tbody>
-                            
+                                    </tr>
+                                @empty
+                                @endforelse
+
+
+
+                            </tbody>
+
                         </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</x-admin-layouts-app>
+    </x-admin-layouts-app>

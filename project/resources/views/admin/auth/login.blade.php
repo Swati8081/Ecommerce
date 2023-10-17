@@ -28,10 +28,10 @@
                                                 </div>
                                                 <p>Enter your e-mail address and your password. </p>
                                                 <div class="form-group mb-3">
-                                                    <input type="email" name="email" class="form-control" value="hello@example.com">
+                                                    <input type="email" name="email" class="form-control" value="admin@gmail.com">
                                                 </div>
                                                 <div class="form-group mb-3">
-                                                    <input type="password" name="password" class="form-control" value="Password">
+                                                    <input type="password" name="password" class="form-control" value="password">
                                                 </div>
                                                 <div class="form-group text-left mb-5 forget-main">
                                                     <button type="submit" class="btn btn-primary">Sign Me In</button>

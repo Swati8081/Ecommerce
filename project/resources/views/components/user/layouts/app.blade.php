@@ -11,6 +11,7 @@
 <body>
     <div class="body-wrapper">
         <x-user.layouts.announcement_bar />
+        
         <x-user.layouts.header />
 
    {{$slot}}

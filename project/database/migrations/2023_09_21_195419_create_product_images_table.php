@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('product_images', function (Blueprint $table) {
             $table->id();
             $table->foreignId('product_id')->references('id')->on('products');
-            $table->string('small_image');
-            $table->string('medium_image');
-            $table->string('large_image');
+            $table->string('small_img');
+            $table->string('medium_img');
+            $table->string('large_img');
             $table->timestamps();
         });
     }
