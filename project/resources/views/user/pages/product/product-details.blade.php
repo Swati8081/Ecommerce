@@ -618,7 +618,7 @@
                                           <a href="#" class="addtocart-btn btn-primary">ADD TO CART</a>
                                       </div>
 
-                                      <a href="{{route('addToWishlist',$product->id)}}" class="wishlist-btn card-wishlist">
+                                      <a href="{{route('wishlist.add',$product->id)}}" class="wishlist-btn card-wishlist">
                                           <svg class="icon icon-wishlist" width="26" height="22"
                                               viewbox="0 0 26 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                               <path

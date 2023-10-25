@@ -30,35 +30,10 @@
             <div class="container">
                 <div class="checkout-page-wrapper">
                     <div class="row">
-                        <div class="col-xl-9 col-lg-8 col-md-12 col-12">
+                        <div class="col-xl-8 col-lg-8 col-md-12 col-12">
                             <div class="section-header mb-3">
                                 <h2 class="section-heading">Check out</h2>
                             </div>
-        
-                            <div class="checkout-progress overflow-hidden">
-                                <ol class="checkout-bar px-0">
-                                    <li class="progress-step step-done"><a href="cart.html">Cart</a></li>
-                                    <li class="progress-step step-active"><a href="checkout.html">Your Details</a></li>
-                                    <li class="progress-step step-todo"><a href="checkout.html">Shipping</a></li>
-                                    <li class="progress-step step-todo"><a href="checkout.html">Payment</a></li>
-                                    <li class="progress-step step-todo"><a href="checkout.html">Review</a></li>
-                                </ol>
-                            </div>
-
-                            <div class="checkout-user-area overflow-hidden d-flex align-items-center">
-                                <div class="checkout-user-img me-4">
-                                    <img src="assets/img/checkout/user.jpg" alt="img">
-                                </div>
-                                <div class="checkout-user-details d-flex align-items-center justify-content-between w-100">
-                                    <div class="checkout-user-info">
-                                        <h2 class="checkout-user-name">Susan Gardner</h2>
-                                        <p class="checkout-user-address mb-0">2752 avenue Royale, Quebec, G1R 2B2, Canada</p>
-                                    </div>
-                                    
-                                    <a href="#" class="edit-user btn-secondary">EDIT PROFILE</a>
-                                </div>
-                            </div>
-
                             <div class="shipping-address-area">
                                 <h2 class="shipping-address-heading pb-1">Shipping address</h2>
                                 <div class="shipping-address-form-wrapper">
@@ -70,50 +45,12 @@
                                                     <input type="text">
                                                 </fieldset>
                                             </div>
-                                            <div class="col-lg-6 col-md-12 col-12">
-                                                <fieldset>
-                                                    <label class="label">Last name</label>
-                                                    <input type="text">
-                                                </fieldset>
-                                            </div>
-                                            <div class="col-lg-6 col-md-12 col-12">
-                                                <fieldset>
-                                                    <label class="label">Email address</label>
-                                                    <input type="email">
-                                                </fieldset>
-                                            </div>
+                                            
+                                         
                                             <div class="col-lg-6 col-md-12 col-12">
                                                 <fieldset>
                                                     <label class="label">Phone number</label>
                                                     <input type="text">
-                                                </fieldset>
-                                            </div>
-                                            <div class="col-lg-6 col-md-12 col-12">
-                                                <fieldset>
-                                                    <label class="label">Company</label>
-                                                    <input type="text">
-                                                </fieldset>
-                                            </div>
-                                            <div class="col-lg-6 col-md-12 col-12">
-                                                <fieldset>
-                                                    <label class="label">Country</label>
-                                                    <select class="form-select">
-                                                        <option selected="ca">Canada</option>
-                                                        <option value="us">USA</option>
-                                                        <option value="au">Australia</option>
-                                                        <option value="me">Mexico</option>
-                                                    </select>
-                                                </fieldset>
-                                            </div>
-                                            <div class="col-lg-6 col-md-12 col-12">
-                                                <fieldset>
-                                                    <label class="label">City</label>                                                        
-                                                    <select class="form-select">
-                                                        <option selected="ca">Toronto</option>
-                                                        <option value="us">Quebec</option>
-                                                        <option value="au">Windsor</option>
-                                                        <option value="me">Calgary</option>
-                                                    </select>
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-6 col-md-12 col-12">
@@ -124,96 +61,59 @@
                                             </div>
                                             <div class="col-lg-6 col-md-12 col-12">
                                                 <fieldset>
-                                                    <label class="label">Address 1</label>
+                                                    <label class="label">Address </label>
                                                     <input type="text">
                                                 </fieldset>
                                             </div>
-                                            <div class="col-lg-6 col-md-12 col-12">
-                                                <fieldset>
-                                                    <label class="label">Address 2</label>
-                                                    <input type="text">
-                                                </fieldset>
-                                            </div>
+                                           
                                         </div>
 
                                     </form>
                                 </div>
                             </div>
 
-                            <div class="shipping-address-area billing-area">
-                                <h2 class="shipping-address-heading pb-1">Billing address</h2>
-                                <div class="form-checkbox d-flex align-items-center mt-4">
-                                    <input class="form-check-input mt-0" type="checkbox">
-                                    <label class="form-check-label ms-2">
-                                        Same as shipping address
-                                    </label>
-                                </div>
-                            </div>
+                           
                             <div class="shipping-address-area billing-area">
                                 <div class="minicart-btn-area d-flex align-items-center justify-content-between flex-wrap">
-                                    <a href="cart.html" class="checkout-page-btn minicart-btn btn-secondary">BACK TO CART</a>
-                                    <a href="checkout.html" class="checkout-page-btn minicart-btn btn-primary">PROCEED TO SHIPPING</a>
+                                    <a href="{{route('cart.index')}}" class="checkout-page-btn minicart-btn btn-secondary">BACK TO CART</a>
+                                    <a href="checkout.html" class="checkout-page-btn minicart-btn btn-primary">Confirm Order</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-4 col-md-12 col-12">
+                        <div class="col-xl-4 col-lg-4 col-md-12 col-12">
                             <div class="cart-total-area checkout-summary-area">
                                 <h3 class="d-none d-lg-block mb-0 text-center heading_24 mb-4">Order summary
 
-                                <div class="minicart-item d-flex">
-                                    <div class="mini-img-wrapper">
-                                        <img class="mini-img" src="assets/img/products/furniture/1.jpg" alt="img">
+                                    @php $total = 0; $shipping_charge = 100; $discount = 10; @endphp
+                                    @foreach ($data as $item)
+                                    @php $total = $total + $item['product']->sale_price * $item->quantity; @endphp
+                                    <div class="minicart-item d-flex">
+                                        <div class="mini-img-wrapper">
+                                            <img class="mini-img" src="{{ asset($item['product']['image']->medium_img ?? 'images/products/small_img/dummy.jpg') }}" alt="img">
+                                        </div>
+                                        <div class="product-info">
+                                            <h2 class="product-title"><a href="#">{{$item['product']->title}}</a></h2>
+                                            <p class="product-vendor">₹{{ $item['product']->sale_price}} * {{ $item->quantity}} = ₹{{ $item['product']->sale_price * $item->quantity }}</p>
+                                        </div>
                                     </div>
-                                    <div class="product-info">
-                                        <h2 class="product-title"><a href="#">Eliot Reversible Sectional</a></h2>
-                                        <p class="product-vendor">$150 x 1</p>
-                                    </div>
-                                </div>
-                                <div class="minicart-item d-flex">
-                                    <div class="mini-img-wrapper">
-                                        <img class="mini-img" src="assets/img/products/furniture/2.jpg" alt="img">
-                                    </div>
-                                    <div class="product-info">
-                                        <h2 class="product-title"><a href="#">Eliot Reversible Sectional</a></h2>
-                                        <p class="product-vendor">$150 x 1</p>
-                                    </div>
-                                </div>
-                                <div class="minicart-item d-flex">
-                                    <div class="mini-img-wrapper">
-                                        <img class="mini-img" src="assets/img/products/furniture/3.jpg" alt="img">
-                                    </div>
-                                    <div class="product-info">
-                                        <h2 class="product-title"><a href="#">Eliot Reversible Sectional</a></h2>
-                                        <p class="product-vendor">$150 x 1</p>
-                                    </div>
-                                </div>
-                                <div class="minicart-item d-flex">
-                                    <div class="mini-img-wrapper">
-                                        <img class="mini-img" src="assets/img/products/furniture/4.jpg" alt="img">
-                                    </div>
-                                    <div class="product-info">
-                                        <h2 class="product-title"><a href="#">Eliot Reversible Sectional</a></h2>
-                                        <p class="product-vendor">$150 x 1</p>
-                                    </div>
-                                </div>
-
+                                    @endforeach
                                 <div class="cart-total-box mt-4 bg-transparent p-0">
                                     <div class="subtotal-item subtotal-box">
                                         <h4 class="subtotal-title">Subtotals:</h4>
-                                        <p class="subtotal-value">$465.00</p>
+                                        <p class="subtotal-value">₹{{$total}}</p>
                                     </div>
                                     <div class="subtotal-item shipping-box">
                                         <h4 class="subtotal-title">Shipping:</h4>
-                                        <p class="subtotal-value">$10.00</p>
+                                        <p class="subtotal-value">₹{{$shipping_charge}}</p>
                                     </div>
                                     <div class="subtotal-item discount-box">
                                         <h4 class="subtotal-title">Discount:</h4>
-                                        <p class="subtotal-value">$100.00</p>
+                                        <p class="subtotal-value">₹{{$discount}}</p>
                                     </div>
                                     <hr>
                                     <div class="subtotal-item discount-box">
                                         <h4 class="subtotal-title">Total:</h4>
-                                        <p class="subtotal-value">$1000.00</p>
+                                        <p class="subtotal-value">₹{{$total + $shipping_charge - $discount}}</p>
                                     </div>
 
 
