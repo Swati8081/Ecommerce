@@ -20,10 +20,10 @@ class UserController extends Controller
         return view('user.pages.product.index',compact('products'));
     }
     public function product_details($id){
-        
+        $products = Product::with('images', 'category')->get();
         $product = Product::with('images', 'category')->find($id);
         
-        return view('user.pages.product.product-details', compact('product'));
+        return view('user.pages.product.product-details', compact('product','products'));
     }
     public function contact(){
        

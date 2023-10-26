@@ -4,7 +4,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-3 col-md-4 col-4">
                     <div class="header-logo">
-                        <a href="index.html" class="logo-main">
+                        <a href="{{route('index')}}" class="logo-main">
                             <img src="{{asset('themes/user')}}/img/logo.png" loading="lazy" alt="bisum">
                         </a>
                     </div>
@@ -26,7 +26,7 @@
                                 {{-- <div class="submenu-transform submenu-transform-desktop">
                                     <ul class="submenu list-unstyled">
                                         <li class="menu-list-item nav-item-sub">
-                                            <a class="nav-link-sub nav-text-sub" href="index.html">Home 1</a>
+                                            <a class="nav-link-sub nav-text-sub" href="{{route('index')}}">Home 1</a>
                                         </li>
                                         <li class="menu-list-item nav-item-sub">
                                             <a class="nav-link-sub nav-text-sub" href="index-shoe.html">Home
@@ -116,7 +116,7 @@
                                             </li>
                                             <li class="menu-list-item nav-item-sub">
                                                 <div class="mega-menu-header d-flex align-items-center justify-content-between">
-                                                    <a class="nav-link-sub nav-text-sub megamenu-heading" href="index.html">
+                                                    <a class="nav-link-sub nav-text-sub megamenu-heading" href="{{route('index')}}">
                                                         PRODUCT LAYOUTS
                                                     </a>
                                                 </div>
@@ -229,7 +229,7 @@
                                 </div>
                             </li> --}}
                             <li class="menu-list-item nav-item">
-                                <a class="nav-link" href="contact.html">Contact</a>
+                                <a class="nav-link" href="{{route('contact')}}">Contact</a>
                             </li>
                         </ul>
                     </nav>

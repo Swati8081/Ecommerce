@@ -13,15 +13,15 @@ Route::post('/addToWishlist', [WishlistController::class, 'addToWishlist'])->nam
 
 Route::prefix('cart')->name('cart.')->controller(CartController::class)->group(function () {
     Route::get('/', 'index')->name('index');
-    Route::post('/add','add')->name('add');
-    Route::post('/increase','increase')->name('increase');
+    Route::post('/add', 'add')->name('add');
+    Route::post('/increase', 'increase')->name('increase');
     Route::post('/decrease', 'decrease')->name('decrease');
     Route::post('/remove', 'remove')->name('remove');
 });
 Route::prefix('wishlist')->name('wishlist.')->controller(WishlistController::class)->middleware('auth')->group(function () {
     Route::get('/', 'index')->name('index');
-    Route::post('/add','add')->name('add');
-    Route::post('/increase','increase')->name('increase');
+    Route::post('/add', 'add')->name('add');
+    Route::post('/increase', 'increase')->name('increase');
     Route::post('/decrease', 'decrease')->name('decrease');
 });
 
@@ -41,8 +41,8 @@ Route::get('/about', [UserController::class, 'about'])->name('about');
 
 Route::prefix('cart')->name('cart.')->controller(CartController::class)->group(function () {
     Route::get('/', 'index')->name('index');
-    Route::post('/add','add')->name('add');
-    Route::post('/increase','increase')->name('increase');
+    Route::post('/add', 'add')->name('add');
+    Route::post('/increase', 'increase')->name('increase');
     Route::post('/decrease', 'decrease')->name('decrease');
     Route::post('/remove', 'remove')->name('remove');
 });
@@ -52,12 +52,12 @@ Route::prefix('cart')->name('cart.')->controller(CartController::class)->group(f
 
 Route::prefix('wishlist')->name('wishlist.')->controller(WishlistController::class)->middleware('auth')->group(function () {
     Route::get('/', 'index')->name('index');
-    Route::post('/add','add')->name('add');
-    Route::post('/increase','increase')->name('increase');
+    Route::post('/add', 'add')->name('add');
+    Route::post('/increase', 'increase')->name('increase');
     Route::post('/decrease', 'decrease')->name('decrease');
 });
 
-Route::get('/checkout', [OrderController::class, 'index'])->name('checkout');
+
 
 
 
@@ -69,6 +69,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/checkout', [OrderController::class, 'index'])->name('checkout');
+    Route::post('/order/store', [OrderController::class, 'store'])->name('order.store');
 });
 
 require __DIR__ . '/auth.php';

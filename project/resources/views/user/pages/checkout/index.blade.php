@@ -37,12 +37,13 @@
                             <div class="shipping-address-area">
                                 <h2 class="shipping-address-heading pb-1">Shipping address</h2>
                                 <div class="shipping-address-form-wrapper">
-                                    <form action="#" class="shipping-address-form common-form">
+                                    <form action="{{ route('order.store') }}" class="shipping-address-form common-form" method="post">
+                                        @csrf
                                         <div class="row">
                                             <div class="col-lg-6 col-md-12 col-12">
                                                 <fieldset>
-                                                    <label class="label">First name</label>
-                                                    <input type="text">
+                                                    <label class="label">Full name</label>
+                                                    <input type="text" name="name">
                                                 </fieldset>
                                             </div>
                                             
@@ -50,35 +51,35 @@
                                             <div class="col-lg-6 col-md-12 col-12">
                                                 <fieldset>
                                                     <label class="label">Phone number</label>
-                                                    <input type="text">
+                                                    <input type="text" name="phone">
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-6 col-md-12 col-12">
                                                 <fieldset>
                                                     <label class="label">Zip code</label>
-                                                    <input type="text">
+                                                    <input type="text" name="pin_code">
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-6 col-md-12 col-12">
                                                 <fieldset>
                                                     <label class="label">Address </label>
-                                                    <input type="text">
+                                                    <input type="text" name="address">
                                                 </fieldset>
                                             </div>
                                            
                                         </div>
-
+                                        <div class="shipping-address-area billing-area">
+                                            <div class="minicart-btn-area d-flex align-items-center justify-content-between flex-wrap">
+                                                <a href="{{route('cart.index')}}" class="checkout-page-btn minicart-btn btn-secondary">BACK TO CART</a>
+                                                <button class="checkout-page-btn minicart-btn btn-primary">Confirm Order</button>
+                                            </div>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
 
                            
-                            <div class="shipping-address-area billing-area">
-                                <div class="minicart-btn-area d-flex align-items-center justify-content-between flex-wrap">
-                                    <a href="{{route('cart.index')}}" class="checkout-page-btn minicart-btn btn-secondary">BACK TO CART</a>
-                                    <a href="checkout.html" class="checkout-page-btn minicart-btn btn-primary">Confirm Order</a>
-                                </div>
-                            </div>
+                            
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-12 col-12">
                             <div class="cart-total-area checkout-summary-area">
